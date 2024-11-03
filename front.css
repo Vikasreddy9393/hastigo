@@ -1,0 +1,911 @@
+ <style>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Header Section */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #1e1e1e;
+            color: #fff;
+        }
+
+        .header .logo h1 {
+            font-size: 28px;
+            color: #ffffff;
+        }
+
+        .header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }S
+
+        .header nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .header nav ul li a:hover {
+            color: #007bff;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Login and Create Booking Buttons Styling */
+        .login-btn,
+        .book-btn {
+            padding: 10px 20px;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            border-radius: 8px;
+        }
+
+        .login-btn {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        .login-btn:hover {
+            background-color: #0056b3;
+            color: #e0e0e0;
+        }
+
+        .book-btn {
+            background-color: #28a745;
+            color: #ffffff;
+        }
+
+        .book-btn:hover {
+            background-color: #218838;
+            color: #e0e0e0;
+        }
+
+        /* Main Section */
+        .main-section {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #bg-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .content h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .route-btn,
+        .map-btn {
+            padding: 12px 25px;
+            background-color: #333;
+            color: #ffffff;
+            border: 1px solid #444;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .route-btn:hover,
+        .map-btn:hover {
+            background-color: #555;
+        }
+
+        /* Vehicle Section */
+        .vehicle-section {
+            padding: 40px;
+            background-color: #121212;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .vehicle-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .vehicle {
+            width: 200px;
+            text-align: center;
+        }
+
+        .vehicle img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .vehicle h3 {
+            margin: 10px 0;
+            font-size: 20px;
+            color: #007bff;
+        }
+
+        .vehicle p {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 40px;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        #map {
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            padding: 40px;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .reviews-section h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #007bff;
+        }
+
+        .review-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px; /* Increased gap for better spacing */
+        }
+
+        .review {
+            background: #2a2a2a;
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 20px; /* Increased padding for better appearance */
+            width: 90%;
+            max-width: 500px; /* Adjusted max width for larger boxes */
+            transition: transform 0.3s, box-shadow 0.3s; /* Added box-shadow for hover effect */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Added shadow for depth */
+        }
+
+        .review:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6); /* Darker shadow on hover */
+        }
+
+        .review p {
+            margin: 5px 0; /* Added margin between paragraphs */
+            font-size: 16px;
+            color: #ffffff;
+        }
+
+        /* Footer Section */
+        footer {
+            padding: 20px;
+            text-align: center;
+            background-color: #121212;
+            color: #bbbbbb;
+            font-size: 14px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* Overlay Section */
+        .overlay-section {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10;
+            overflow-y: auto;
+        }
+
+        .overlay-content {
+            background: #fff;
+            margin: 10% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 400px;
+            position: relative;
+            border-radius: 8px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: #f44336;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        /* Hide scrollbar */
+        .overlay-section::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Input styles */
+        form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        form input,
+        form select {
+            width: calc(100% - 10px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .submit-btn {
+            padding: 10px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+ body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .booking-form {
+            display: flex;
+            align-items: center;
+        }
+        .booking-form div {
+            margin-right: 15px;
+        }
+        label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="date"] {
+            padding: 8px;
+            width: 200px;
+            font-size: 14px;
+        }
+        .search-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+        .search-button:hover {
+            background-color: #45a049;
+        }
+        .options {
+            margin-left: 10px;
+        }
+font-family: Arial, sans-serif;
+        }
+        .container {
+            margin: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .booking-form {
+            display: flex;
+            align-items: center;
+        }
+        .booking-form div {
+            margin-right: 15px;
+        }
+        label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="date"] {
+            padding: 8px;
+            width: 200px;
+            font-size: 14px;
+        }
+        .search-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+        .search-button:hover {
+            background-color: #45a049;
+        }
+        .options {
+            margin-left: 10px;
+        }
+    </style>
+    </style>
+/* Container for Booking Search and Content */
+.container {
+    display: flex; /* Use flexbox to align children */
+    justify-content: space-between; /* Space out children */
+    align-items: flex-start; /* Align items to the top */
+    max-width: 1200px; /* Max width for better control */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Add padding around the container */
+}
+
+/* Booking Search Section */
+.booking-search {
+    flex: 1; /* Allow it to grow and take available space */
+    margin-right: 20px; /* Spacing between booking and content */
+}
+
+/* Overlay Styles */
+.overlay {
+    flex: 0 0 30%; /* Fixed width for the overlay */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+}
+
+/* Content Section */
+.content {
+    flex: 1; /* Allow it to grow and take available space */
+    text-align: left; /* Align text to the left */
+}
+
+.content h1 {
+    font-size: 36px; /* Larger font for main title */
+    color: #00796b; /* Main theme color */
+}
+
+.content h2 {
+    font-size: 24px; /* Slightly smaller for subtitle */
+    color: #004d40; /* Darker color for contrast */
+}
+
+.content p {
+    font-size: 18px; /* Size for the paragraph */
+    color: #555; /* Subtle color for text */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack vertically on small screens */
+    }
+
+    .booking-search, .content {
+        margin-right: 0; /* Remove right margin in vertical layout */
+    }
+
+    .overlay {
+        flex: none; /* Reset for overlay on smaller screens */
+    }
+}
+<style>
+        /* Existing styling */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 20px;
+        }
+
+        .header .logo h1 {
+            color: white;
+            font-size: 24px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-family: 'Allegreya', sans-serif;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .header-actions .login-btn, .header-actions .download-btn {
+            padding: 10px 15px;
+            background-color: #ffcc00;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: 'Allegreya', sans-serif;
+        }
+
+        .header-actions .login-btn:hover, .header-actions .download-btn:hover {
+            background-color: #e6b800;
+        }  
+     
+        /* Old CSS for vehicle-section */
+.vehicle-section {
+    padding: 50px;
+    text-align: center;
+}
+
+.vehicle-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.vehicle {
+    width: 200px;
+    margin: 20px;
+    text-align: center;
+}
+
+.vehicle img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.vehicle h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.vehicle p {
+    color: #555;
+    font-size: 14px;
+}
+
+    </style>
+/* New Section: Available Cities */
+.available-cities-section {
+    padding: 60px 40px;
+    background-color: #2c3e50;
+    text-align: center;
+    color: #ecf0f1;
+}
+
+.available-cities-section h2 {
+    font-size: 38px;
+    margin-bottom: 40px;
+    color: #f39c12;
+}
+
+.city-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.city-list p {
+    background-color: #34495e;
+    padding: 15px 25px;
+    border-radius: 15px;
+    color: #ecf0f1;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.city-list p:hover {
+    background-color: #f39c12;
+    color: #1e1e2f;
+}
+
+/* New Section: Travel Stats with Icon Circles */
+.travel-stats-section {
+    padding: 80px 40px;
+    background-color: #1c2833;
+    text-align: center;
+}
+
+.travel-stats-section h2 {
+    font-size: 38px;
+    color: #f39c12;
+    margin-bottom: 50px;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.stat-item {
+    text-align: center;
+    color: #f1c40f;
+}
+
+.stat-item img {
+    width: 120px;
+    height: 120px;
+    background-color: #f39c12;
+    border-radius: 50%;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.stat-item p {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #ecf0f1;
+}
+
+/* New Section: Advantages with Modern Grid */
+.advantages-section {
+    padding: 80px 40px;
+    background-color: #273746;
+    color: #f39c12;
+    text-align: center;
+}
+
+.advantages-section h2 {
+    font-size: 38px;
+    margin-bottom: 40px;
+}
+
+.advantages-section ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.advantages-section li {
+    background-color: #34495e;
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.advantages-section li:hover {
+    background-color: #f39c12;
+    color: #1e1e2f;
+}
+/* Available Cities Section */
+.available-cities-section {
+    padding: 60px 40px;
+    background-color: #2c3e50;
+    text-align: center;
+    color: #ecf0f1;
+}
+
+.available-cities-section h2 {
+    font-size: 38px;
+    margin-bottom: 40px;
+    color: #f39c12;
+}
+
+.city-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.city-item {
+    text-align: center;
+    background-color: #34495e;
+    padding: 15px;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+    max-width: 250px;
+}
+
+.city-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.city-item p {
+    color: #ecf0f1;
+    font-size: 20px;
+}
+
+.city-item:hover {
+    background-color: #f39c12;
+    color: #1e1e2f;
+}
+
+/* Travel Stats Section */
+.travel-stats-section {
+    padding: 80px 40px;
+    background-color: #1c2833;
+    text-align: center;
+}
+
+.travel-stats-section h2 {
+    font-size: 38px;
+    color: #f39c12;
+    margin-bottom: 50px;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
+
+.stat-item {
+    text-align: center;
+    color: #f1c40f;
+    background-color: #34495e;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.stat-item img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    background-color: #f39c12;
+    padding: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.stat-item p {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #ecf0f1;
+}
+
+/* Advantages Section */
+.advantages-section {
+    padding: 80px 40px;
+    background-color: #273746;
+    text-align: center;
+    color: #f39c12;
+}
+
+.advantages-section h2 {
+    font-size: 38px;
+    margin-bottom: 40px;
+}
+
+.advantages-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.advantage-item {
+    background-color: #34495e;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.advantage-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.advantage-item p {
+    font-size: 18px;
+    color: #ecf0f1;
+}
+
+.advantage-item:hover {
+    background-color: #f39c12;
+    color: #1e1e2f;
+}
+/* Travel Statistics Section */
+.travel-stats-section {
+    background-color: #282c34; /* Dark background */
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.travel-stats-section h2 {
+    font-family: 'Allegreya', sans-serif;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stats-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px; /* Space between items */
+}
+
+.stat-item {
+    flex: 1 1 200px; /* Responsive size */
+    margin: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s;
+    position: relative; /* Position for image placement */
+}
+
+.stat-item:hover {
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+.stat-item img {
+    max-width: 80px; /* Adjust image size */
+    margin-bottom: 10px;
+}
+
+.stat-item p {
+    margin: 5px 0; /* Spacing between paragraphs */
+    font-family: 'Allegreya', sans-serif;
+}
+
+/* Available Cities Section */
+.available-cities-section {
+    background-color: #f0f0f0; /* Light background */
+    color: #333;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.available-cities-section h2 {
+    font-family: 'Allegreya', sans-serif;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.city-list {
+    font-family: 'Allegreya', sans-serif;
+    font-size: 1.2em;
+}
+
+/* Advantages Section */
+.advantages-section {
+    background-color: #fff; /* White background */
+    color: #333;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.advantages-section h2 {
+    font-family: 'Allegreya', sans-serif;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.advantages-section ul {
+    list-style-type: none; /* Remove default bullet points */
+    padding: 0;
+    font-family: 'Allegreya', sans-serif;
+    font-size: 1.2em;
+}
+
+.advantages-section li {
+    margin: 10px 0; /* Spacing between items */
+    position: relative; /* Position for image placement */
+}
+
+/* Add images for advantages if needed */
+.advantages-section li::before {
+    content: url('path/to/image.png'); /* Replace with your image path */
+    position: absolute;
+    left: -40px; /* Adjust position */
+    top: 50%;
+    transform: translateY(-50%); /* Center the image vertically */
+    width: 30px; /* Set image width */
+    height: auto; /* Maintain aspect ratio */
+}
+/* Vehicles Section: Adjust spacing between rows */
+.vehicle-section .row {
+  margin-bottom: 10px; /* Reduce this value to bring rows closer */
+  padding-bottom: 0;   /* Ensure padding is minimal */
+}
+
+/* Adjust spacing between individual vehicle items */
+.vehicle-item {
+  margin: 5px; /* Reduce spacing between individual vehicles */
+}
+

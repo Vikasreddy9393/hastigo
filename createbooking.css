@@ -1,0 +1,295 @@
+/* Styles for the overlay section */
+.overlay-section {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000; /* High z-index to overlay above other content */
+    align-items: center;
+    justify-content: center;
+}
+
+/* Colorful background for the Login overlay */
+#login-overlay .overlay-content {
+    background: linear-gradient(to right, #a7c7e7, #e3f2fd); /* Light blue gradient */
+    color: #000; /* Black text for contrast */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    max-width: 400px;
+    width: 90%; /* Responsive width */
+    text-align: center; /* Center the text */
+}
+
+/* Colorful background for the Booking overlay */
+#booking-overlay .overlay-content {
+    background: linear-gradient(to right, #ffecb3, #ffe0b2); /* Light orange gradient */
+    color: #000; /* Black text for contrast */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    max-width: 500px;
+    width: 90%; /* Responsive width */
+    text-align: center; /* Center the text */
+}
+
+/* Modified background to match the provided image */
+#booking-overlay .overlay-content {
+    background: linear-gradient(to right, #ffeb99, #87cefa); /* Match colors from image */
+    color: #000; /* Black text for contrast */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    max-width: 600px; /* Wider width */
+    width: 100%; /* Responsive width */
+    text-align: center; /* Center the text */
+}
+
+/* Style for the 'Create a Booking' header */
+h1 {
+    font-family: 'Holla Script', cursive; /* Updated to a stylish font */
+    color: white; /* White text */
+}
+
+/* Close button style */
+.close-btn {
+    background: transparent;
+    border: none;
+    color: #000; /* Dark text for better visibility */
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Submit button styling */
+.submit-btn {
+    background: #ff4081; /* A vibrant button color */
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.submit-btn:hover {
+    background: #e91e63; /* Darker shade on hover */
+}
+
+/* Dropdown menu for bus type */
+select {
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* Input fields */
+input[type="text"], input[type="date"], input[type="time"] {
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin-bottom: 15px;
+    background-color: #fff;
+    color: orange; /* Orange text while typing */
+}
+
+/* Different vehicle mode background styles */
+.cars-background {
+    background: linear-gradient(to right, #b3e5fc, #e1f5fe); /* Light blue gradient */
+    color: #000; /* Dark text */
+}
+
+.bikes-background {
+    background: linear-gradient(to right, #ffccbc, #ffe0b2); /* Light peach gradient */
+    color: #000; /* Dark text */
+}
+
+.buses-background {
+    background: linear-gradient(to right, #ffe57f, #fff9c4); /* Light yellow gradient */
+    color: #000; /* Dark text */
+}
+
+/* Form-specific styles */
+#booking-form label {
+    color: #000; /* Keep label text black */
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #fff;
+}
+
+/* Login Button */
+.login-trigger {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-trigger:hover {
+    background-color: #2980b9;
+    box-shadow: 0 0 15px rgba(52, 152, 219, 0.7);
+}
+
+/* Overlay for Login Form */
+.login-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.login-container {
+    background-color: #1e1e1e;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+    width: 400px;
+    max-width: 90%;
+    text-align: center;
+}
+
+/* Login Form */
+.login-header h2 {
+    color: #00ffff;
+    text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+    margin-bottom: 20px;
+}
+
+.login-content input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: inset 0 0 5px rgba(0, 255, 255, 0.3);
+}
+
+.login-content button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.login-content button:hover {
+    background-color: #2980b9;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+}
+
+/* Facebook Login Button */
+.fb-login {
+    background-color: #3b5998;
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+.fb-login:hover {
+    background-color: #2d4373;
+    box-shadow: 0 0 15px rgba(59, 89, 152, 0.7);
+}
+
+/* Forgot Password and Sign-Up Links */
+.forgot-password, .sign-up a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.forgot-password:hover, .sign-up a:hover {
+    text-decoration: underline;
+}
+
+/* App Store Buttons */
+.app-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.app-store {
+    width: 150px;
+    margin: 0 10px;
+}
+
+.app-store:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .login-container {
+        width: 90%;
+    }
+}
+
+}
+
+#booking-form .form-group {
+    margin-bottom: 20px;
+}
+
+/* Button styling */
+button {
+    background-color: #ff4081; /* Button background color */
+    color: white; /* Text color */
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background-color: #e91e63; /* Darker color on hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
